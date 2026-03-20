@@ -252,9 +252,9 @@
 
     .about-header {
       display: grid;
-      grid-template-columns: 140px 1fr;
+      grid-template-columns: 220px 1fr;
       align-items: stretch;
-      gap: 18px;
+      gap: 22px;
       margin-bottom: 10px;
     }
 
@@ -262,9 +262,6 @@
       height: 100%;
       width: 100%;
       object-fit: contain;
-      background: #ffffff;
-      padding: 10px;
-      border-radius: 14px;
     }
 
     .about-text {
@@ -284,6 +281,11 @@
     .section-head {
       max-width: 760px;
       margin-bottom: 34px;
+    }
+
+    /* Make About text span full width like cards */
+    #about .section-head {
+      max-width: none;
     }
 
     .section-head h2 {
@@ -735,3 +737,4 @@
   </footer>
 </body>
 </html>
+
