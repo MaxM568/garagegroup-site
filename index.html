@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garage Group | A Local Buyer for Independent Garages</title>
+  <meta name="description" content="Garage Group works with independent garage owners who may be thinking about retirement, succession, or a long-term transition." />
+  <style>
+    :root {
+      --navy: #05315b;
+      --navy-2: #0b447c;
+      --ink: #16202b;
+      --muted: #5b6878;
+      --line: #d9e2ec;
+      --bg: #f4f7fb;
+      --white: #ffffff;
+      --soft: #eaf1f8;
+      --radius: 22px;
+      --shadow: 0 18px 50px rgba(5, 49, 91, 0.08);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 2px solid var(--navy);
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: #042846;
+      border-color: #042846;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--navy);
+    }
+
+    .btn-secondary:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    header {
+      background:
+        linear-gradient(rgba(4, 40, 70, 0.82), rgba(5, 49, 91, 0.82)),
+        url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before,
+    header::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(20px);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    header::before {
+      width: 280px;
+      height: 280px;
+      background: #7ab4f0;
+      top: -80px;
+      right: -60px;
+    }
+
+    header::after {
+      width: 220px;
+      height: 220px;
+      background: #3f82c7;
+      bottom: -90px;
+      left: -40px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .brand img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+      padding: 56px 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.4rem, 5vw, 4.35rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 720px;
+    }
+
+    .hero p {
+      max-width: 690px;
+      margin: 0 0 26px;
+      color: rgba(255,255,255,0.9);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .hero-panel {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 1.15rem;
+    }
+
+    .hero-panel ul {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+      padding-bottom: 48px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    section { padding: 80px 0; }
+
+    .section-photo {
+      background:
+        linear-gradient(rgba(5, 49, 91, 0.84), rgba(5, 49, 91, 0.84)),
+        url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: var(--white);
+    }
+
+    .section-photo .section-head h2,
+    .section-photo .section-head p,
+    .section-photo .card h3,
+    .section-photo .card p {
+      color: var(--white);
+    }
+
+    .section-photo .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(8px);
+    }
+
+    .section-head {
+      
+    }
+
+    .about-header {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      align-items: stretch;
+      gap: 18px;
+      margin-bottom: 10px;
+    }
+
+    .about-header img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 14px;
+    }
+
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-text h2 {
+      margin: 0 0 10px;
+    }
+
+    .about-text p {
+      margin: 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      line-height: 1.08;
+      color: var(--navy);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .grid { display: grid; gap: 22px; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 1.18rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    .process {
+      counter-reset: step;
+    }
+
+    .process .card {
+      position: relative;
+      padding-left: 84px;
+    }
+
+    .process .card::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    /* Make 5th step span full width */
+    .process .card:nth-child(5) {
+      grid-column: span 2;
+    }
+
+    .quote {
+      background: linear-gradient(180deg, var(--white), #f9fbfd);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote blockquote {
+      margin: 0 0 16px;
+      font-size: 1.18rem;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    .quote cite {
+      font-style: normal;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+      color: var(--white);
+      border-radius: 30px;
+      padding: 38px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      margin: 0 0 12px;
+      color: var(--white);
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      line-height: 1.08;
+    }
+
+    .cta p {
+      margin: 0 0 22px;
+      color: rgba(255,255,255,0.9);
+      max-width: 760px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .contact-list li { margin-bottom: 10px; }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--navy);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      font: inherit;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .contact-full-wrapper {
+      width: 100%;
+      padding: 0 4%;
+    }
+
+    .contact-full-card {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .footer-logo {
+      height: 50px;
+      margin: 0 auto 12px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .grid-2,
+      .grid-3,
+      .stats,
+      .field-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .process .card {
+        padding-left: 26px;
+        padding-top: 78px;
+      }
+
+      .process .card::before {
+        left: 24px;
+        top: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#top" class="brand">
+          <!-- Replace logo.png with your file name -->
+          <img src="logo-nav.png" alt="Garage Group Logo">
+          <span>Garage Group</span>
+        </a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#why-us">Why Owners Talk to Us</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <div class="hero" id="top">
+        <div>
+          <span class="eyebrow">Local buyer of independent garages with a long-term mindset</span>
+          <h1>Built on trust. Focused on legacy.</h1>
+          <p>
+            We work with independent garage owners in Ottawa, Gatineau, and surrounding areas who may be thinking about retirement, succession, or a gradual transition. Our goal is to make the process practical, respectful, and low-pressure.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn">Start a Confidential Conversation</a>
+            <a href="#why-us" class="btn btn-secondary">See How We Work</a>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <h3>What we are looking for</h3>
+          <ul>
+            <li>Independent repair garages and service shops</li>
+            <li>Owner-operated or family-run businesses</li>
+            <li>Established local customer bases</li>
+            <li>Owners considering retirement, succession, or growth</li>
+            <li>Shops where reputation and continuity matter</li>
+          </ul>
+        </div>
+      </div>
+
+      </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="about-header">
+            <!-- Replace logo.png with your file name -->
+            <img src="logo-about.png" alt="Garage Group Logo">
+            <div class="about-text">
+              <h2>A practical transition partner for independent shop owners</h2>
+              <p>
+                Selling a garage is not just about numbers. It affects your employees, your customers, and the reputation you built over years of work. We believe that transition conversations should be thoughtful, direct, and built around the long-term health of the business.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Preserve what works</h3>
+            <p>We respect strong local brands, trusted teams, and the customer relationships that make a shop valuable.</p>
+          </div>
+          <div class="card">
+            <h3>Support a smooth handoff</h3>
+            <p>Some owners want a clean exit. Others want a slower transition. We are open to both approaches.</p>
+          </div>
+          <div class="card">
+            <h3>Keep it straightforward</h3>
+            <p>Early conversations can stay informal. Sometimes the first step is simply a phone call or coffee.</p>
+          </div>
+        </div>
+
+        
+      </div>
+    </section>
+
+    
+
+    <section id="why-us" class="section-photo">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why owners choose to talk to us</h2>
+          <p>
+            We are not trying to force a fast sale. We are trying to build the right fit. That means protecting the legacy of the business while creating a practical path forward.
+          </p>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Protect your legacy</h3>
+            <p>Your name, employees, and customers matter. We aim to continue what you built with care and professionalism.</p>
+          </div>
+          <div class="card">
+            <h3>Flexible transition options</h3>
+            <p>We can discuss immediate exits, phased transitions, or structures that allow for a handoff over time.</p>
+          </div>
+          <div class="card">
+            <h3>Local and operator-minded</h3>
+            <p>We value reputation, consistency, and strong day-to-day operations more than flashy branding.</p>
+          </div>
+          <div class="card">
+            <h3>Simple, confidential process</h3>
+            <p>No pressure, no obligation, and no need to make a decision quickly. The first step is just a conversation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <h2>A simple and structured process</h2>
+          <p>
+            We keep things clear and straightforward so you always know what to expect. Each step is designed to be transparent, respectful, and easy to follow.
+          </p>
+        </div>
+
+        <div class="grid grid-2 process">
+          <div class="card">
+            <h3>Introduction</h3>
+            <p>We start with a confidential conversation to understand your situation, your business, and whether selling is something you are considering now or later.</p>
+          </div>
+
+          <div class="card">
+            <h3>Analysis and valuation</h3>
+            <p>We review your operations, customer base, and financials to get a clear picture of the business and determine a fair value.</p>
+          </div>
+
+          <div class="card">
+            <h3>Proposal</h3>
+            <p>If there is a good fit, we present a simple and clear proposal outlining the structure, price, and possible transition options.</p>
+          </div>
+
+          <div class="card">
+            <h3>Deal closing</h3>
+            <p>We work through the details together to finalize the agreement while keeping the process smooth and low stress.</p>
+          </div>
+
+          <div class="card">
+            <h3>Bring your shop to the next level</h3>
+            <p>After closing, we focus on strengthening the business — supporting the team, improving operations, and building on the reputation you created.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <h2>Thinking about retirement, succession, or what comes next?</h2>
+          <p>
+            Whether you are ready to sell now or simply exploring future options, we would be glad to have a private conversation. We are open to thoughtful, staged transitions — not just immediate exits.
+          </p>
+          <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-full">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>
+            Send us a message and we’ll get back to you as soon as possible. All conversations are confidential and with no obligation.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-full-wrapper">
+        <div class="card contact-full-card">
+          <h3>Send us a message</h3>
+          <form class="contact-form" action="https://formsubmit.co/max@garagegroup.ca" method="POST">
+            <input type="hidden" name="_subject" value="New website inquiry from Garage Group" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
+            <div class="field-grid">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div>
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div>
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" />
+              </div>
+              <div>
+                <label for="business">Name of Business</label>
+                <input id="business" name="business" type="text" />
+              </div>
+            </div>
+
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Send Message</button>
+            
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <!-- Replace logo.png with your file name -->
+      <img src="logo-footer.png" alt="Garage Group Logo" class="footer-logo">
+      <p>© 2026 Garage Group. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
