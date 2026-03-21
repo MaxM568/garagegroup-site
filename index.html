@@ -116,7 +116,7 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 0;
       font-size: 1.35rem;
       font-weight: 800;
       letter-spacing: 0.3px;
@@ -485,28 +485,171 @@
     }
 
     @media (max-width: 920px) {
+      section { padding: 64px 0; }
+
+      .container {
+        width: min(94%, var(--max));
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 14px;
+      }
+
+      .brand img {
+        height: 52px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 14px;
+        font-size: 0.95rem;
+      }
+
       .hero,
       .grid-2,
       .grid-3,
       .stats,
       .field-grid,
-      .contact-grid {
+      .contact-grid,
+      .about-header {
         grid-template-columns: 1fr;
       }
 
-      nav {
+      .hero {
+        gap: 24px;
+        padding: 42px 0 28px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.02;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-panel,
+      .card,
+      .cta,
+      .contact-full-card {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      .eyebrow {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      .about-header {
+        gap: 18px;
+      }
+
+      .about-header img {
+        max-width: 220px;
+        margin: 0 auto;
+        height: auto;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+
+      .section-head {
+        margin-bottom: 26px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(1.7rem, 7vw, 2.2rem);
       }
 
       .process .card {
-        padding-left: 26px;
-        padding-top: 78px;
+        padding-left: 22px;
+        padding-top: 74px;
       }
 
       .process .card::before {
-        left: 24px;
-        top: 22px;
+        left: 22px;
+        top: 20px;
+      }
+
+      .process .card:nth-child(5) {
+        grid-column: span 1;
+      }
+
+      .contact-full-wrapper {
+        padding: 0 3%;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        padding: 13px 14px;
+      }
+
+      .footer-logo {
+        height: 42px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      section { padding: 54px 0; }
+
+      nav {
+        padding: 18px 0;
+      }
+
+      .brand img {
+        height: 46px;
+      }
+
+      .nav-links {
+        gap: 10px 14px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding: 34px 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .hero-panel ul {
+        padding-left: 16px;
+      }
+
+      .btn {
+        padding: 13px 18px;
+        font-size: 0.96rem;
+      }
+
+      .card h3,
+      .hero-panel h3 {
+        font-size: 1.08rem;
+      }
+
+      .contact-full-wrapper {
+        padding: 0 12px;
       }
     }
   </style>
@@ -516,7 +659,6 @@
     <div class="container">
       <nav>
         <a href="#top" class="brand">
-          <!-- Replace logo.png with your file name -->
           <img src="logo-nav.png" alt="Garage Group Logo">
         </a>
         <div class="nav-links">
@@ -532,7 +674,7 @@
           <span class="eyebrow">Local buyer of independent garages with a long-term mindset</span>
           <h1>Built on trust. Focused on legacy.</h1>
           <p>
-            We work with independent garage owners who may be thinking about retirement, succession, or a gradual transition. Our goal is to make the process practical, respectful, and low-pressure.
+            We work with independent garage owners in Ottawa, Gatineau, and surrounding areas who may be thinking about retirement, succession, or a gradual transition. Our goal is to make the process practical, respectful, and low-pressure.
           </p>
           <div class="hero-actions">
             <a href="#contact" class="btn">Start a Confidential Conversation</a>
@@ -736,4 +878,5 @@
   </footer>
 </body>
 </html>
+
 
